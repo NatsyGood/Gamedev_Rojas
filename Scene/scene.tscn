@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://qx5joikk0gak"]
 
+[ext_resource type="Script" uid="uid://cfxefae6djy7d" path="res://Scene/scene.gd" id="1_i0f4b"]
 [ext_resource type="PackedScene" uid="uid://44mlnsyepa5d" path="res://Scene/asset.tscn" id="1_yjfpt"]
+[ext_resource type="Texture2D" uid="uid://c81a8vgmfcdtf" path="res://icon.svg" id="3_dxec3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xae1b"]
 distance = 3.0
 
 [node name="Scene" type="Node2D" unique_id=1730912516]
+script = ExtResource("1_i0f4b")
 
 [node name="Asset" parent="." unique_id=689036479 instance=ExtResource("1_yjfpt")]
 position = Vector2(0, -49.000004)
@@ -19,3 +22,12 @@ position = Vector2(-32, 26)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1074296652]
 position = Vector2(32, -26)
 shape = SubResource("WorldBoundaryShape2D_xae1b")
+
+[node name="Button" type="Button" parent="." unique_id=1447322384]
+offset_left = -61.0
+offset_top = -1.0
+offset_right = 75.0
+offset_bottom = 135.0
+icon = ExtResource("3_dxec3")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
